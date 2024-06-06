@@ -1,0 +1,10 @@
+<%- include("partials/header.ejs") %>
+<h1>Posts</h1>
+<ul>
+  <% if (post) { %>
+    <li><%- post %></li>
+  <% } else { %>
+    <li>No posts available</li>
+  <% } %>
+</ul>
+<%- include("partials/footer.ejs") %>

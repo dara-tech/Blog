@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Admin Dashboard</title>
+  <!-- Updated Bootstrap link for a modern theme -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    /* Custom styles for the navbar */
+    .navbar-brand {
+      font-weight: bold;
+      color: #343a40; /* Dark gray */
+    }
+    .navbar-nav .nav-link {
+      color: #6c757d; /* Dark gray */
+    }
+    .navbar-nav .nav-link:hover {
+      color: #007bff; /* Blue */
+    }
+    /* Custom styles for cards */
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+    }
+    .card-header {
+      background-color: #f8f9fa; /* Light gray */
+      border-bottom: none;
+      font-weight: bold;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    /* Custom styles for form elements */
+    .form-group label {
+      font-weight: bold;
+    }
+    /* Adjust margins and paddings */
+    .mt-4 {
+      margin-top: 3rem !important;
+    }
+    .mb-4 {
+      margin-bottom: 3rem !important;
+    }
+    .px-4 {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+    /* Custom button style */
+    .btn-primary {
+      background-color: #007bff; /* Blue */
+      border: none;
+      border-radius: 25px;
+      padding: 10px 25px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3; /* Dark blue */
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Blog Admin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Tags</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            Recent Posts
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h4>Recent post</h4>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8 mb-4">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            Add New Post
+          </div>
+          <div class="card-body">
+            <form action="/submit" method="POST">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title"> <!-- Added name attribute -->
+                </div>
+                <div class="mb-3">
+                  <label for="content" class="form-label">Content</label>
+                  <textarea class="form-control" id="content" rows="5" name="content"></textarea> <!-- Added name attribute -->
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <!-- CKEditor CDN -->
+  <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+  <script>
+    ClassicEditor
+      .create(document.querySelector('#content'))
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+</body>
+</html>
